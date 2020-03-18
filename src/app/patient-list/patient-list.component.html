@@ -1,0 +1,16 @@
+<div class="container">
+
+<div class="row mt-5 mb-3">
+  <div class="col-1"></div>
+  <div class="col-4">Click on the patient whose data you wish to view.</div>
+  <div class="col-7"></div>
+</div>
+
+
+<table>
+  <tr *ngFor="let onePatient of data; let i = index" class="mt-1">
+    <td class="w-25"></td>
+    <td (click)="LinktoPatient(i)" class="w-50 border border-info p-2">{{onePatient.name}}</td>
+  </tr>
+</table>
+</div>

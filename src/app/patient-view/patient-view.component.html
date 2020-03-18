@@ -1,0 +1,28 @@
+<div class="container">
+
+  <div class="row mt-5 mb-3">
+    <div class="col-1 font-weight-bold">Patient</div>
+    <div class="col-4"> {{thisPatient.name}} </div>
+  </div>
+  <div class="row mt-1 mb-3">
+    <div class="col-1 font-weight-bold">Gender</div>
+    <div class="col-4"> {{thisPatient.gender}} </div>
+  </div>
+  <div class="row mt-1 mb-3">
+    <div class="col-1 font-weight-bold">Birthdate</div>
+    <div class="col-4">{{thisPatient.dob | date:'MM/dd/yyyy'}} </div>
+  </div>
+List of Conditions (click on name or date to sort):
+<table class="mt-3">
+  <tr>
+    <th (click)="sortTable('name', thisPatient.conditionList)">Condition Name</th>
+    <th (click)="sortTable('started', thisPatient.conditionList)">Onset Date</th>
+    <th>Search</th>
+  </tr>
+  <tr *ngFor="let aCondition of thisPatient.conditionList">
+    <td class="w-50 border border-info p-2">{{aCondition.name}}</td>
+    <td class="w-25 border border-info p-2">{{aCondition.started}}</td>
+    <td class="w-25 border border-info p-2"><a [href]="aCondition.getPubMedUrl()">search</a></td>
+  </tr>
+</table>
+</div>
